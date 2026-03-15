@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kill Team Datacards</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 20px auto; padding: 0 15px; background: #f4f4f9; }
+        h1 { font-size: 2.5rem; text-align: center; color: #007bff; margin-bottom: 10px; letter-spacing: -1px; font-weight: 800;}
+        
+        /* Selettore Lingua */
+        .lang-switch { text-align: center; margin-bottom: 20px; }
+        .lang-btn { 
+            padding: 8px 20px; margin: 0 5px; cursor: pointer; border: 2px solid #007bff; 
+            background: white; color: #007bff; border-radius: 20px; font-weight: bold; 
+        }
+        .lang-btn.active { background: #007bff; color: white; }
+
+        /* Barra di ricerca */
+        .search-container { position: sticky; top: 10px; background: rgba(255,255,255,0.95); padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 100; backdrop-filter: blur(5px); }
+        input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; box-sizing: border-box; font-size: 16px; transition: 0.3s; }
+        input:focus { border-color: #007bff; outline: none; }
+        
+        /* Contenitore Risultati */
+        .unit-container { 
+            background: white; 
+            margin-top: 20px; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: none; /* Nascosto di default finché non si cerca o si decide di mostrare tutto */
+        }
+
+        .unit-header {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Griglia Immagini */
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        #noResults { display: none; text-align: center; margin-top: 20px; color: #888; font-size: 1.2rem; }
+        
+        /* Helper per mostrare tutto se input vuoto (opzionale) */
+        .show-all .unit-container { display: block; }
+    </style>
+</head>
+<body>
+    <h1>Kill Team Data</h1>
+
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="changeLanguage('ITA', this)">ITA</button>
+        <!-- <button class="lang-btn" onclick="changeLanguage('ENG', this)">ENG</button> -->
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Digita il nome dell'unità..." onkeyup="search()">
+    </div>
+
+    <div id="list"></div>
+    <div id="noResults">Nessuna unità trovata.</div>
+
+    <script>
+        const listContainer = document.getElementById('list');
+        const noResults = document.getElementById('noResults');
+        
+        // CONFIGURAZIONE CARTELLA IMMAGINI
+        // Se le immagini sono nella stessa cartella dell'html, lascia stringa vuota ""
+        // Se sono in una sottocartella, metti "img/" o "cards/"
+        const IMG_PATH = "img/"; 
+
+        let dataAttiva = {}; 
+
+        function changeLanguage(lang, btn) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const oldScript = document.getElementById('script-lingua');
+            if (oldScript) oldScript.remove();
+
+            const script = document.createElement('script');
+            script.id = 'script-lingua';
+            script.src = `archivio_${lang}.js?v=${new Date().getTime()}`;
+            
+            script.onload = () => {
+                // Si aspetta che il JS definisca window.DATI_ARCHIVIO
+                dataAttiva = window.DATI_ARCHIVIO; 
+                document.getElementById('searchInput').value = ''; 
+                renderList(dataAttiva);
+            };
+            
+            document.body.appendChild(script);
+        }
+
+        function renderList(data) {
+            listContainer.innerHTML = '';
+            
+            // Ordiniamo le chiavi alfabeticamente per pulizia
+            const keys = Object.keys(data).sort();
+
+            let htmlContent = '';
+
+            keys.forEach(key => {
+                const images = data[key];
+                
+                // Creiamo le stringhe per i tag IMG
+                const imagesHtml = images.map(imgFile => 
+                    `<img src="${IMG_PATH}${imgFile}" loading="lazy" alt="${key}">`
+                ).join('');
+
+                htmlContent += `
+                    <div class="unit-container" data-name="${key.toLowerCase()}">
+                        <div class="gallery">
+                            ${imagesHtml}
+                        </div>
+                    </div>
+                `;
+            });
+
+            listContainer.innerHTML = htmlContent;
+            
+            // Opzionale: Mostra tutto subito? 
+            // Se vuoi che la lista sia vuota all'inizio, lascia commentato.
+            // Se vuoi vedere tutto subito, togli il commento sotto:
+            // search(); 
+        }
+
+        function search() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const units = document.querySelectorAll('.unit-container');
+            let foundAny = false;
+
+            units.forEach(div => {
+                const name = div.getAttribute('data-name');
+                
+                // Se la query è vuota, decidiamo se nascondere tutto o mostrare tutto.
+                // Qui: se vuoto nascondo tutto (per non caricare troppe immagini), 
+                // se scrivo qualcosa filtro.
+                if (query === "") {
+                    div.style.display = "none"; 
+                    return;
+                }
+
+                // Logica "Closest/Includes": mostra se il nome contiene le lettere digitate
+                if (name.includes(query)) {
+                    div.style.display = "block";
+                    foundAny = true;
+                } else {
+                    div.style.display = "none";
+                }
+            });
+
+            // Gestione messaggio "Nessun risultato"
+            if (query !== "" && !foundAny) {
+                noResults.style.display = "block";
+            } else {
+                noResults.style.display = "none";
+            }
+        }
+
+        window.onload = () => {
+            const btnIta = document.querySelector('.lang-btn');
+            changeLanguage('ITA', btnIta);
+        };
+    </script>
+</body>
+</html>
