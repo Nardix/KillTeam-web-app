@@ -38,8 +38,8 @@ def unisci_e_rinomina_immagini():
         cartella_path = os.path.join(base_folder, cartella)
         print(f"Elaborazione cartella: {cartella}...")
 
-        # Trova tutte le immagini JPG nella cartella corrente
-        immagini = [f for f in os.listdir(cartella_path) if f.lower().endswith(".jpg")]
+        # Trova tutte le immagini webp nella cartella corrente
+        immagini = [f for f in os.listdir(cartella_path) if f.lower().endswith(".webp")]
         
         # Ordina le immagini alfabeticamente per mantenere l'ordine in cui sono state create
         immagini.sort()
@@ -49,7 +49,7 @@ def unisci_e_rinomina_immagini():
             src_path = os.path.join(cartella_path, immagine)
             
             # Crea il nuovo nome usando il contatore globale
-            nuovo_nome = f"{contatore_globale}.jpg"
+            nuovo_nome = f"{contatore_globale}.webp"
             dest_path = os.path.join(output_folder, nuovo_nome)
             
             # Copia il file

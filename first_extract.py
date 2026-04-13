@@ -90,7 +90,7 @@ def estrai_schede_miste(pdf_path, output_folder, page_config):
                 card_img = img.crop(crop_area)
                 
                 scheda_globale_count += 1
-                filename = f"{output_folder}/scheda_{scheda_globale_count:03d}_p{page_num}_{layout_name}.jpg"
+                filename = f"{output_folder}/scheda_{scheda_globale_count:03d}_p{page_num}_{layout_name}.webp"
                 card_img.save(filename, quality=95)
                 # print(f" -> Salvata: {filename}")
 

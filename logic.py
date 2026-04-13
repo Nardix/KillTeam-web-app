@@ -52,11 +52,7 @@ for nome_oggetto, dati_oggetto in archivio_2.items():
             numero_img = start + cnt 
             # NOTA: se le immagini partono dal numero di 'start', cambia la riga sopra in: numero_img = start + cnt
             
-            # Controlliamo l'estensione del file
-            if os.path.isfile(f"img/{numero_img}.jpg"):
-                nome_file = f"{numero_img}.jpg"
-            else:
-                nome_file = f"{numero_img}.png"
+            nome_file = f"{numero_img}.webp"
                 
             # 2. Aggiungiamo l'immagine alla lista della parola chiave senza sovrascrivere
             for parola in agent.get("parole_chiavi", []):
