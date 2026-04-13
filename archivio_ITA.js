@@ -662,93 +662,99 @@ window.DATI_ARCHIVIO = {
         "1046.jpg"
     ],
     "ricognizione": [
-        "1045.jpg",
-        "1046.jpg",
-        "1136.jpg",
-        "1137.jpg",
-        "60.jpg",
-        "115.jpg",
-        "238.jpg",
-        "268.jpg",
-        "269.jpg",
         "378.jpg",
-        "379.jpg",
-        "405.jpg",
-        "429.jpg",
-        "430.jpg",
         "518.jpg",
-        "519.jpg",
-        "546.jpg",
-        "885.jpg",
-        "886.jpg",
-        "1290.jpg",
-        "787.jpg",
         "607.jpg",
-        "608.jpg",
-        "694.jpg",
         "758.jpg",
-        "759.jpg",
-        "816.jpg",
-        "817.jpg",
-        "852.jpg",
-        "853.jpg",
         "920.jpg",
-        "921.jpg",
-        "922.jpg",
-        "1013.jpg",
-        "1111.jpg",
-        "1112.jpg",
+        "1448.png",
+        "1453.png",
         "1229.jpg",
         "1260.jpg",
+        "430.jpg",
+        "816.jpg",
+        "694.jpg",
+        "921.jpg",
+        "1045.jpg",
+        "1420.png",
+        "269.jpg",
+        "1046.jpg",
+        "759.jpg",
+        "817.jpg",
         "1261.jpg",
+        "787.jpg",
+        "853.jpg",
+        "1111.jpg",
+        "885.jpg",
+        "238.jpg",
+        "1290.jpg",
+        "519.jpg",
+        "405.jpg",
         "1419.png",
-        "1420.png"
+        "379.jpg",
+        "1450.png",
+        "546.jpg",
+        "115.jpg",
+        "1137.jpg",
+        "1013.jpg",
+        "60.jpg",
+        "429.jpg",
+        "852.jpg",
+        "1136.jpg",
+        "268.jpg",
+        "922.jpg",
+        "1112.jpg",
+        "886.jpg",
+        "608.jpg"
     ],
     "ricerca e distruzione": [
-        "1045.jpg",
-        "1046.jpg",
-        "1175.jpg",
-        "1136.jpg",
-        "1137.jpg",
-        "1321.jpg",
-        "1322.jpg",
-        "1383.jpg",
-        "60.jpg",
-        "87.jpg",
-        "115.jpg",
-        "353.jpg",
-        "460.jpg",
-        "461.jpg",
-        "147.jpg",
-        "176.jpg",
-        "202.jpg",
-        "203.jpg",
-        "293.jpg",
-        "378.jpg",
-        "379.jpg",
-        "405.jpg",
-        "327.jpg",
-        "328.jpg",
-        "1290.jpg",
-        "490.jpg",
         "491.jpg",
-        "574.jpg",
-        "666.jpg",
-        "667.jpg",
-        "635.jpg",
-        "727.jpg",
-        "728.jpg",
-        "816.jpg",
-        "817.jpg",
+        "378.jpg",
         "920.jpg",
-        "921.jpg",
-        "922.jpg",
-        "955.jpg",
-        "956.jpg",
+        "1321.jpg",
         "983.jpg",
+        "1456.png",
+        "816.jpg",
+        "921.jpg",
+        "1045.jpg",
+        "461.jpg",
+        "203.jpg",
+        "666.jpg",
+        "1046.jpg",
+        "328.jpg",
+        "460.jpg",
+        "817.jpg",
+        "955.jpg",
         "984.jpg",
+        "1077.jpg",
+        "147.jpg",
+        "353.jpg",
         "1076.jpg",
-        "1077.jpg"
+        "490.jpg",
+        "1383.jpg",
+        "728.jpg",
+        "1290.jpg",
+        "1446.png",
+        "405.jpg",
+        "379.jpg",
+        "293.jpg",
+        "956.jpg",
+        "115.jpg",
+        "1137.jpg",
+        "176.jpg",
+        "327.jpg",
+        "60.jpg",
+        "635.jpg",
+        "574.jpg",
+        "727.jpg",
+        "202.jpg",
+        "1136.jpg",
+        "667.jpg",
+        "87.jpg",
+        "922.jpg",
+        "1457.png",
+        "1175.jpg",
+        "1322.jpg"
     ],
     "reattori dorsali": [
         "1047.jpg",
@@ -2764,42 +2770,45 @@ window.DATI_ARCHIVIO = {
         "1175.jpg"
     ],
     "sicurezza": [
-        "1175.jpg",
-        "1136.jpg",
-        "1137.jpg",
-        "87.jpg",
-        "353.jpg",
-        "202.jpg",
-        "203.jpg",
-        "238.jpg",
-        "1358.jpg",
-        "1359.jpg",
-        "546.jpg",
-        "885.jpg",
-        "886.jpg",
-        "327.jpg",
-        "328.jpg",
-        "490.jpg",
         "491.jpg",
-        "574.jpg",
-        "666.jpg",
-        "667.jpg",
-        "635.jpg",
-        "694.jpg",
-        "727.jpg",
-        "728.jpg",
-        "852.jpg",
-        "853.jpg",
-        "955.jpg",
-        "956.jpg",
-        "983.jpg",
-        "984.jpg",
-        "1206.jpg",
-        "1207.jpg",
-        "1260.jpg",
-        "1261.jpg",
+        "1359.jpg",
         "1421.png",
-        "1422.png"
+        "1358.jpg",
+        "983.jpg",
+        "1260.jpg",
+        "694.jpg",
+        "1451.png",
+        "203.jpg",
+        "666.jpg",
+        "328.jpg",
+        "955.jpg",
+        "1261.jpg",
+        "984.jpg",
+        "1449.png",
+        "1422.png",
+        "853.jpg",
+        "353.jpg",
+        "1206.jpg",
+        "885.jpg",
+        "490.jpg",
+        "238.jpg",
+        "728.jpg",
+        "546.jpg",
+        "956.jpg",
+        "1447.png",
+        "1137.jpg",
+        "327.jpg",
+        "635.jpg",
+        "574.jpg",
+        "727.jpg",
+        "202.jpg",
+        "852.jpg",
+        "1136.jpg",
+        "667.jpg",
+        "87.jpg",
+        "1207.jpg",
+        "886.jpg",
+        "1175.jpg"
     ],
     "veleno": [
         "1177.jpg",
@@ -3056,37 +3065,40 @@ window.DATI_ARCHIVIO = {
         "1137.jpg"
     ],
     "infiltrazione": [
-        "1136.jpg",
-        "1137.jpg",
-        "1321.jpg",
-        "1322.jpg",
-        "1383.jpg",
-        "460.jpg",
-        "461.jpg",
-        "147.jpg",
-        "176.jpg",
-        "268.jpg",
-        "269.jpg",
-        "293.jpg",
-        "429.jpg",
-        "430.jpg",
-        "518.jpg",
-        "519.jpg",
-        "1358.jpg",
         "1359.jpg",
-        "787.jpg",
+        "518.jpg",
         "607.jpg",
-        "608.jpg",
+        "1358.jpg",
+        "1321.jpg",
         "758.jpg",
+        "1229.jpg",
+        "430.jpg",
+        "461.jpg",
+        "269.jpg",
         "759.jpg",
-        "1013.jpg",
-        "1076.jpg",
+        "460.jpg",
+        "787.jpg",
+        "1454.png",
         "1077.jpg",
+        "147.jpg",
+        "1452.png",
         "1111.jpg",
-        "1112.jpg",
         "1206.jpg",
+        "1076.jpg",
+        "1383.jpg",
+        "519.jpg",
+        "1455.png",
+        "293.jpg",
+        "1137.jpg",
+        "176.jpg",
+        "1013.jpg",
+        "429.jpg",
+        "1136.jpg",
+        "268.jpg",
+        "1112.jpg",
         "1207.jpg",
-        "1229.jpg"
+        "608.jpg",
+        "1322.jpg"
     ],
     "tecniche d'aspetto": [
         "1138.jpg"
@@ -9295,7 +9307,8 @@ window.DATI_ARCHIVIO = {
     ],
     "rivendicare diritti": [
         "701.jpg",
-        "1423.png"
+        "1423.png",
+        "1442.png"
     ],
     "esploratori intrepidi": [
         "702.jpg"
@@ -11419,7 +11432,8 @@ window.DATI_ARCHIVIO = {
         "1227.jpg"
     ],
     "rintracciare il nemico": [
-        "1226.jpg"
+        "1226.jpg",
+        "1454.png"
     ],
     "esploratore guerriero": [
         "1228.jpg"
@@ -11799,28 +11813,54 @@ window.DATI_ARCHIVIO = {
         "1418.jpg"
     ],
     "operazione tattica": [
-        "1419.png",
-        "1420.png",
         "1421.png",
-        "1422.png"
-    ],
-    "fianchi": [
-        "1419.png"
-    ],
-    "recupero": [
+        "1454.png",
+        "1449.png",
+        "1453.png",
+        "1446.png",
+        "1456.png",
+        "1419.png",
+        "1422.png",
+        "1450.png",
+        "1455.png",
+        "1448.png",
+        "1452.png",
+        "1457.png",
+        "1447.png",
+        "1451.png",
         "1420.png"
     ],
+    "fianchi": [
+        "1419.png",
+        "1448.png"
+    ],
+    "recupero": [
+        "1420.png",
+        "1453.png"
+    ],
     "emissario": [
+        "1447.png",
         "1421.png"
     ],
     "martiri": [
-        "1422.png"
+        "1422.png",
+        "1449.png"
     ],
     "operazione critica": [
+        "1424.png",
+        "1442.png",
+        "1438.png",
+        "1441.png",
+        "1444.png",
         "1423.png",
-        "1424.png"
+        "1440.png",
+        "1443.png",
+        "1437.png",
+        "1439.png",
+        "1445.png"
     ],
     "celle energetiche": [
+        "1437.png",
         "1424.png"
     ],
     "allestimento": [
@@ -11965,5 +12005,64 @@ window.DATI_ARCHIVIO = {
     ],
     "ustionante": [
         "1436.png"
+    ],
+    "raccogliere segnalino": [
+        "1437.png",
+        "1451.png",
+        "1453.png"
+    ],
+    "compilare dati": [
+        "1438.png"
+    ],
+    "inviare dati": [
+        "1438.png"
+    ],
+    "muovere globo": [
+        "1439.png"
+    ],
+    "mettere in sicurezza": [
+        "1440.png"
+    ],
+    "riavviare": [
+        "1441.png"
+    ],
+    "saccheggiare": [
+        "1443.png"
+    ],
+    "scaricare": [
+        "1444.png"
+    ],
+    "iniziare trasmissione": [
+        "1445.png"
+    ],
+    "dominare": [
+        "1446.png"
+    ],
+    "osservare i movimenti nemici": [
+        "1450.png"
+    ],
+    "piantare la bandiera": [
+        "1451.png"
+    ],
+    "piazzare congegni": [
+        "1452.png"
+    ],
+    "recuperare": [
+        "1453.png"
+    ],
+    "rubare informazioni": [
+        "1455.png"
+    ],
+    "sgombrare e ripulire": [
+        "1456.png"
+    ],
+    "sgominare": [
+        "1457.png"
+    ],
+    "operazione omicida": [
+        "1458.png"
+    ],
+    "grado omicida": [
+        "1458.png"
     ]
 }

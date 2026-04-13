@@ -102,6 +102,21 @@ kt_map_pulito = {k: v for k, v in kt_map_finale.items() if k not in chiavi_da_ri
 
 print(f"Rimosse {len(chiavi_da_rimuovere)} chiavi ridondanti: {chiavi_da_rimuovere}")
 
-# Se vuoi salvare il risultato in un nuovo file JSON:
-with open('risultato_finale.json', 'w', encoding='utf-8') as f:
-    json.dump(kt_map_pulito, f, indent=4, ensure_ascii=False)
+# Carichiamo il file esistente archivio_ITA.js se esiste, altrimenti inizializziamo un dizionario vuoto
+try:
+    with open('archivio_ITA.json', 'r', encoding='utf-8') as f:
+        existing_data = json.load(f)
+except FileNotFoundError:
+    existing_data = {}
+
+# Uniamo kt_map_pulito con existing_data
+for key, value in kt_map_pulito.items():
+    if key in existing_data:
+        # Combiniamo le liste senza duplicati
+        existing_data[key] = list(set(existing_data[key] + value))
+    else:
+        existing_data[key] = value
+
+# Scriviamo il dizionario unito in archivio_ITA.js
+with open('archivio_ITA.json', 'w', encoding='utf-8') as f:
+    json.dump(existing_data, f, indent=4, ensure_ascii=False)
