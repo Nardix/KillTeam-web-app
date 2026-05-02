@@ -1,63 +1,58 @@
+import json
 import shutil
-import re
 import os
 
 # --- IMPOSTAZIONI PERCORSI ---
-# Inserisci il percorso della cartella principale dove si trovano le tue "schede_finali_X"
+# Inserisci il percorso della cartella principale dove si trovano le cartelle dei team
 # Se esegui lo script dalla stessa cartella in cui sono salvate, puoi lasciare "."
-base_folder = "."  
+base_folder = "."
 output_folder = os.path.join(base_folder, "img")
 
+with open("order.json", encoding="utf-8") as f:
+    data = json.load(f)
+
+order_names = list(data.keys())
+
+
 def unisci_e_rinomina_immagini():
-    # Crea la cartella "img" se non esiste
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
         print(f"Creata cartella di destinazione: {output_folder}")
 
-    # Trova tutte le cartelle che iniziano con "schede_finali_"
-    cartelle = [f for f in os.listdir(base_folder) 
-                if os.path.isdir(os.path.join(base_folder, f)) and f.startswith("schede_finali_")]
+    existing_folders = [name for name in order_names if os.path.isdir(os.path.join(base_folder, name))]
 
-    if not cartelle:
-        print("Nessuna cartella 'schede_finali_' trovata.")
+    if not existing_folders:
+        print("Nessuna cartella corrispondente ai nomi in order.json trovata.")
         return
 
-    # Funzione per estrarre il numero dal nome della cartella per un ordinamento corretto
-    # Così 'schede_finali_2' viene prima di 'schede_finali_10'
-    def estrai_numero_cartella(nome_cartella):
-        match = re.search(r'\d+', nome_cartella)
-        return int(match.group()) if match else 0
-
-    # Ordina le cartelle numericamente
-    cartelle_ordinate = sorted(cartelle, key=estrai_numero_cartella)
-
-    contatore_globale = 1
-
-    # Itera attraverso ogni cartella ordinata
-    for cartella in cartelle_ordinate:
+    for cartella in existing_folders:
         cartella_path = os.path.join(base_folder, cartella)
         print(f"Elaborazione cartella: {cartella}...")
 
-        # Trova tutte le immagini webp nella cartella corrente
-        immagini = [f for f in os.listdir(cartella_path) if f.lower().endswith(".webp")]
+        range_info = data[cartella].get("range", {})
+        start = range_info.get("start")
+        end = range_info.get("end")
         
-        # Ordina le immagini alfabeticamente per mantenere l'ordine in cui sono state create
+        contatore = start
+        print(f"  Usando range: start={start}, end={end}")
+
+        immagini = [f for f in os.listdir(cartella_path) if f.lower().endswith(".webp")]
         immagini.sort()
 
-        # Copia e rinomina ogni immagine
         for immagine in immagini:
+            if end is not None and contatore > end:
+                print(f"  Attenzione: troppi file in {cartella}. Ignoro {immagine} perché supera end={end}.")
+                break
+            
             src_path = os.path.join(cartella_path, immagine)
-            
-            # Crea il nuovo nome usando il contatore globale
-            nuovo_nome = f"{contatore_globale}.webp"
+            nuovo_nome = f"{contatore}.webp"
             dest_path = os.path.join(output_folder, nuovo_nome)
-            
-            # Copia il file
             shutil.copy2(src_path, dest_path)
-            
-            contatore_globale += 1
+            contatore += 1
 
-    print(f"\nOperazione completata! {contatore_globale - 1} immagini copiate nella cartella '{output_folder}'.")
+    print(f"\nOperazione completata! Immagini copiate nella cartella '{output_folder}'.")
 
-# Esecuzione dello script
-unisci_e_rinomina_immagini()
+
+if __name__ == "__main__":
+    unisci_e_rinomina_immagini()
+ 

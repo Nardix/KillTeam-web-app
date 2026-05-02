@@ -96,13 +96,13 @@ def estrai_schede_miste(pdf_path, output_folder, page_config):
 
     print(f"\nFinito! Salvate {scheda_globale_count} schede in '{output_folder}'.")
 
-input_folder = r"C:\Users\Antonio\Desktop\KillTeam_webapp\all_pdf"
+input_folder = r"C:\Users\Antonio\Downloads\kill_team_update"
 
 # 1. Recupero la lista di tutti i file PDF presenti nella cartella
 pdf_disponibili = [f for f in os.listdir(input_folder) if f.lower().endswith(".pdf")]
 
 # Ordina gli elementi del json in base al valore "id"
-# order.items() crea liste del tipo: ('nome_file', {'id': 1, 'layout': {'orizzontal': 3, 'vertical': 4}})
+# order.items() crea liste del tipo: ('nome_file', {'id': 1, 'layout': {'horizontal': 3, 'vertical': 4}, "range": {"start": , "end": }})
 ordinati_per_id = sorted(order.items(), key=lambda item: item[1]['id'])
 
 cnt = 0
@@ -123,7 +123,7 @@ for nome_chiave, file_data in ordinati_per_id:
         
         # Estrai i conteggi per orizzontale e verticale
         layout_data = file_data.get("layout", {})
-        num_orizzontali = layout_data.get("orizzontal", 0)
+        num_orizzontali = layout_data.get("horizontal", 0)
         num_verticali = layout_data.get("vertical", 0)
         
         # Crea il page_config dinamico per il file corrente
@@ -141,7 +141,7 @@ for nome_chiave, file_data in ordinati_per_id:
             current_page += 1
         
         # Cartella di output univoca per mantenere ordine
-        out_folder = "schede_finali_" + str(cnt)
+        out_folder = f"{nome_chiave}"
         
         # Lancia l'estrazione
         estrai_schede_miste(file_path, output_folder=out_folder, page_config=dynamic_page_config)
